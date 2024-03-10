@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val binding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       // val viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        val viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         val myAdapter =  ProductsRecyclerAdapter( this)
 

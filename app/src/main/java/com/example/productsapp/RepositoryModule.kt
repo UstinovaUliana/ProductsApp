@@ -14,12 +14,14 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class RepositoryModule {
-
-    @Binds
-    abstract fun bindProductsRepository(
+class RepositoryModule {
+    @Singleton
+    @Provides
+    fun provideProductsRepository(
         productsRepositoryImpl: ProductsRepositoryImpl
-    ): ProductsRepository
+    ): ProductsRepository {
+        return productsRepositoryImpl
+    }
 
 
 }

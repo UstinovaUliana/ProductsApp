@@ -9,7 +9,7 @@ import io.reactivex.rxjava3.core.Single
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class ProductsRepositoryImpl @Inject constructor( val service: ProductsApiService): ProductsRepository {
+class ProductsRepositoryImpl @Inject constructor(private val service: ProductsApiService): ProductsRepository {
 
     override fun loadProducts() = doPagingRequest(ProductPagingSource(service))
 
