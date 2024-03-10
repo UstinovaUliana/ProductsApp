@@ -1,35 +1,17 @@
 package com.example.productsapp
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import androidx.paging.PagingData
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.productsapp.adapter.ProductsRecyclerAdapter
-import com.example.productsapp.databinding.ActivityMainBinding
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
-import retrofit2.Retrofit
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 
+class ProductsFragment : Fragment() {
+/*
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-
-
-@AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-        val binding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-       // val viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        val viewModel: MainViewModel by viewModels()
 
         val myAdapter =  ProductsRecyclerAdapter( this)
 
@@ -67,10 +49,11 @@ class MainActivity : AppCompatActivity() {
                 myAdapter.submitData(it)
             }
 
- */
 
 
     }
 
+ */
 
+ */
 }

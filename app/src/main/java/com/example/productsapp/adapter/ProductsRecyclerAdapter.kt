@@ -3,13 +3,18 @@ package com.example.productsapp.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
+import com.example.domain.Product
+import com.example.productsapp.MyDiffUtilItemCallback
 import com.example.productsapp.databinding.ItemProductBinding
-import com.example.productsapp.model.Product
+import com.example.productsapp.model.ProductUI
 
-class ProductsRecyclerAdapter(val products: ArrayList<Product>, val context : Context) : Adapter<ProductsRecyclerAdapter.ProductsViewHolder>() {
+class ProductsRecyclerAdapter(val context : Context) : PagingDataAdapter<ProductUI,ProductsRecyclerAdapter.ProductsViewHolder>(
+    MyDiffUtilItemCallback()
+) {
 
     class ProductsViewHolder(binding: ItemProductBinding) : ViewHolder(binding.root) {
         val productThumbnail = binding.thumbnailView
@@ -17,10 +22,9 @@ class ProductsRecyclerAdapter(val products: ArrayList<Product>, val context : Co
         val productDescription = binding.descriptionTextView
     }
 
-    override fun getItemCount(): Int = products.size
 
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
-        products[position].also {
+        getItem(position)?.also {
             Glide.with(holder.itemView.context)
                 .load(it.thumbnail)
                 .into(holder.productThumbnail)
