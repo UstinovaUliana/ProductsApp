@@ -1,8 +1,7 @@
 package com.example.productsapp.model
 
-import androidx.recyclerview.widget.DiffUtil
-import com.example.domain.Product
-import com.example.productsapp.IBaseDiffModel
+import com.example.domain.models.Product
+import com.example.productsapp.util.IBaseDiffModel
 
 data class ProductUI(
     val thumbnail: String,
