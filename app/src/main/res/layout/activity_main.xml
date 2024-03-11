@@ -8,16 +8,32 @@
 
     <TextView
         android:id="@+id/textViewProducts"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/products_list"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="12dp"
+        android:padding="4dp"
         android:textSize="26sp"
+        android:background="@drawable/border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="italic"
+        android:textColor="@color/black"/>
+
+    <ProgressBar
+        android:id="@+id/products_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="8dp"
+        android:foregroundTint="#79B4E3"
+        android:theme="@style/ProgressBarStyle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewProducts"
+        android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productsRecyclerView"

@@ -2,10 +2,10 @@
     <string name="app_name">ProductsApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="products_list">Our products:</string>
+    <string name="products_list">Our products</string>
     <string name="product_thumbnail">Product\'s Thumbnail</string>
     <string name="product_name">Product\'s Name</string>
     <string name="product_description">Product\'s Description</string>
-    <string name="product_price">Product\'s Price</string>
-    <string name="product_rating">Product\'s Rating</string>
+    <string name="product_price">Price</string>
+    <string name="product_rating">Rating</string>
 </resources>

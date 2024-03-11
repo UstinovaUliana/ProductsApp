@@ -5,6 +5,6 @@ import javax.inject.Inject
 
 class SearchProductsUseCase @Inject constructor (private val repository: ProductsRepository) {
 
-    operator fun invoke() = repository.searchProducts()
+    //operator fun invoke() = repository.searchProducts()
 
 }

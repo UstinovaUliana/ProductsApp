@@ -1,6 +1,5 @@
 package com.example.data.paging
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.data.api.ProductsApiService
@@ -8,6 +7,8 @@ import com.example.domain.models.Product
 import org.json.JSONObject
 import retrofit2.HttpException
 import java.io.IOException
+
+private const val BASE_STARTING_PAGE_INDEX = 0
 
 class ProductPagingSource(private val service: ProductsApiService): PagingSource<Int, Product>() {
 
@@ -18,7 +19,6 @@ class ProductPagingSource(private val service: ProductsApiService): PagingSource
         }
     }
 
-    val BASE_STARTING_PAGE_INDEX = 0
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Product> {
         val position = params.key ?: BASE_STARTING_PAGE_INDEX
 
@@ -29,7 +29,6 @@ class ProductPagingSource(private val service: ProductsApiService): PagingSource
                     response.errorBody()!!.string()
                 ).toString()
             )
-            Log.d("mytag", "size=${data.products?.size}")
             var nextKey: Int? = data.skip + data.limit
             if (nextKey == params.key) {
                 nextKey = null

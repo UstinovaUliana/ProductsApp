@@ -6,9 +6,12 @@ import com.example.productsapp.util.IBaseDiffModel
 data class ProductUI(
     val thumbnail: String,
     override val title: String,
-    val description: String
-) : IBaseDiffModel<String>
+    val description: String,
+    val price: Int,
+    val rating: Float,
+    val images: ArrayList<String>
+) : IBaseDiffModel<String>, java.io.Serializable
 
 fun Product.toUI() = ProductUI(
-    thumbnail, title, description
+    thumbnail, title, description, price, rating, images
 )

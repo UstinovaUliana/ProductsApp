@@ -2,12 +2,12 @@ package com.example.domain.repositories
 
 import androidx.paging.PagingData
 import com.example.domain.models.Product
-import kotlinx.coroutines.flow.Flow
+import io.reactivex.Flowable
 
 interface ProductsRepository {
 
-    fun loadProducts(): Flow<PagingData<Product>>
+    fun loadProducts(): Flowable<PagingData<Product>>
 
-    fun searchProducts(): Flow<PagingData<Product>>
+    //fun searchProducts(): Flow<PagingData<Product>>
 
 }
