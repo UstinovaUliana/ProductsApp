@@ -16,22 +16,7 @@ class ProductsRepositoryImpl @Inject constructor(private val service: ProductsAp
 
     override fun loadProducts() = doPagingRequest(ProductPagingSource(service))
 
-    //override fun searchProducts() = doPagingRequest(ProductPagingSource(service))
-
-    /* ?????
-    fun <Key : Any, Value : Any>  doPagingSearchRequest (
-        pagingSource: PagingSource<Key, Value>,
-        pageSize: Int = 20,
-        prefetchDistance: Int = pageSize,
-        enablePlaceholders: Boolean = true,
-        initialLoadSize: Int = pageSize * 2,
-        maxSize: Int = Int.MAX_VALUE,
-        jumpThreshold: Int = Int.MIN_VALUE
-    ): Flow<PagingData<Value>> =
-
-     */
-
-    fun <Key : Any, Value : Any> doPagingRequest(
+    private fun <Key : Any, Value : Any> doPagingRequest(
         pagingSource: PagingSource<Key, Value>,
         pageSize: Int = 20,
         prefetchDistance: Int = pageSize,

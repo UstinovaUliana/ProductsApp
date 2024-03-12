@@ -1,6 +1,5 @@
 package com.example.productsapp.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -8,15 +7,18 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.productsapp.databinding.ItemProductBinding
 import com.example.productsapp.model.ProductUI
-import com.example.productsapp.util.MyDiffUtilItemCallback
+import com.example.productsapp.util.ProductsDiffUtilItemCallback
 
-class ProductsRecyclerAdapter(val context: Context) :
+class ProductsRecyclerAdapter(private val onClick: (ProductUI) -> Unit) :
     PagingDataAdapter<ProductUI, ProductsRecyclerAdapter.ProductsViewHolder>(
-        MyDiffUtilItemCallback()
+        ProductsDiffUtilItemCallback()
     ) {
 
-    class ProductsViewHolder(private val binding: ItemProductBinding, val onClickListener1: OnClickListener?) : ViewHolder(binding.root) {
-        fun onBind(item: ProductUI){
+    class ProductsViewHolder(
+        private val binding: ItemProductBinding,
+        val onClick: (ProductUI) -> Unit
+    ) : ViewHolder(binding.root) {
+        fun onBind(item: ProductUI) {
             with(binding) {
                 Glide.with(itemView.context)
                     .load(item.thumbnail)
@@ -24,22 +26,10 @@ class ProductsRecyclerAdapter(val context: Context) :
                 titleTextView.text = item.title
                 descriptionTextView.text = item.description
             }
-            itemView.setOnClickListener{
-                if (onClickListener1 != null) {
-                    onClickListener1!!.onClick(position, item)
-                }
+            itemView.setOnClickListener {
+                onClick(item)
             }
         }
-    }
-
-    lateinit var onClickListener1: OnClickListener
-
-    interface OnClickListener {
-        fun onClick(position: Int, model: ProductUI)
-    }
-
-    fun setOnClickListener(onClickListenerParam: OnClickListener) {
-        this.onClickListener1 = onClickListenerParam
     }
 
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
@@ -51,6 +41,6 @@ class ProductsRecyclerAdapter(val context: Context) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
         val itemBinding =
             ItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ProductsViewHolder(itemBinding, onClickListener1)
+        return ProductsViewHolder(itemBinding, onClick)
     }
 }

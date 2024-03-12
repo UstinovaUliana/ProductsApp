@@ -13,14 +13,4 @@ interface ProductsApiService {
         @Query("limit") limit: Int
     ): Response<ProductPagingResponse>
 
-    /*
-    @GET("products/search")
-    suspend fun searchProducts (
-        @Query("q") q: String,
-        @Query("skip") skip: Int,
-        @Query("limit") limit: Int
-    ): Response<ProductPagingResponse>
-
-     */
-
 }

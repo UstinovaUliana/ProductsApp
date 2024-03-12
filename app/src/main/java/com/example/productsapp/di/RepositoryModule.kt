@@ -19,5 +19,4 @@ class RepositoryModule {
         return productsRepositoryImpl
     }
 
-
 }

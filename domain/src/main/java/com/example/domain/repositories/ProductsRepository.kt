@@ -8,6 +8,4 @@ interface ProductsRepository {
 
     fun loadProducts(): Flowable<PagingData<Product>>
 
-    //fun searchProducts(): Flow<PagingData<Product>>
-
 }

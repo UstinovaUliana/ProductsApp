@@ -15,10 +15,11 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val loadProductsUseCase: LoadProductsUseCase) :
     ViewModel() {
 
-    fun <T : Any, S : Any> Flowable<PagingData<T>>.collectPagingRequest(
+    fun loadProducts() = loadProductsUseCase().collectPagingRequest { it.toUI() }
+
+
+    private fun <T : Any, S : Any> Flowable<PagingData<T>>.collectPagingRequest(
         mappedData: (T) -> S
     ) = map { it.map { data -> mappedData(data) } }.cachedIn(viewModelScope)
-
-    fun loadProducts() = loadProductsUseCase().collectPagingRequest { it.toUI() }
 
 }

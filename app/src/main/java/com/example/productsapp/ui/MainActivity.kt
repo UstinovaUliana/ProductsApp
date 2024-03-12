@@ -25,7 +25,13 @@ class MainActivity : AppCompatActivity() {
         val binding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val myAdapter = ProductsRecyclerAdapter(this)
+        val onClick: (ProductUI) -> Unit = { model ->
+            val intent = Intent(this@MainActivity, ProductActivity::class.java)
+            intent.putExtra("Product", model)
+            startActivity(intent)
+        }
+
+        val myAdapter = ProductsRecyclerAdapter(onClick)
 
         binding.productsRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -36,16 +42,8 @@ class MainActivity : AppCompatActivity() {
             binding.productsProgressBar.isVisible = loadStates.refresh is LoadState.Loading
         }
 
-        myAdapter.setOnClickListener(object: ProductsRecyclerAdapter.OnClickListener {
-                        override fun onClick(position: Int, model: ProductUI) {
-                            val intent = Intent(this@MainActivity, ProductActivity::class.java)
-                            intent.putExtra("Product", model)
-                            startActivity(intent)
-                        }
-                    })
-
-        disposable.add(viewModel.loadProducts().subscribe{
-            myAdapter.submitData(lifecycle,it)
+        disposable.add(viewModel.loadProducts().subscribe {
+            myAdapter.submitData(lifecycle, it)
         })
 
     }
