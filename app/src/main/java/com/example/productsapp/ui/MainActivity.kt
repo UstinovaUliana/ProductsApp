@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.productsapp.R
 import com.example.productsapp.adapter.ProductsRecyclerAdapter
 import com.example.productsapp.databinding.ActivityMainBinding
 import com.example.productsapp.model.ProductUI
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         val onClick: (ProductUI) -> Unit = { model ->
             val intent = Intent(this@MainActivity, ProductActivity::class.java)
-            intent.putExtra("Product", model)
+            intent.putExtra(R.string.product.toString(), model)
             startActivity(intent)
         }
 

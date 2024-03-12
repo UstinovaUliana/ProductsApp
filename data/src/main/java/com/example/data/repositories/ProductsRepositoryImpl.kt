@@ -25,7 +25,6 @@ class ProductsRepositoryImpl @Inject constructor(private val service: ProductsAp
         maxSize: Int = Int.MAX_VALUE,
         jumpThreshold: Int = Int.MIN_VALUE
     ): io.reactivex.Flowable<PagingData<Value>> {
-        Log.d("mytag", "RepositoryImpl")
         return Pager(
             config = PagingConfig(
                 pageSize,

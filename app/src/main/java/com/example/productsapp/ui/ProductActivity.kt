@@ -13,7 +13,7 @@ class ProductActivity : AppCompatActivity() {
         val binding: ActivityProductBinding = ActivityProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val product = intent.getSerializableExtra("Product") as ProductUI
+        val product = intent.getSerializableExtra(R.string.product.toString()) as ProductUI
 
         binding.itemTitleTextView.text = product.title
         Glide.with(this)
