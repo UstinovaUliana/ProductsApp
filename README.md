@@ -5,7 +5,8 @@ This application shows list of products downloaded from the server on the first 
 
 ## Technology stack
 
-Kotlin, Jetpack Compose, Kotlin Coroutines, Retrofit + okHttp, Hilt, Room.
+Kotlin, Android View, RxJava, Retrofit + okHttp, Glide, Hilt, Paging
+
 
 ## Setup for Developers
 1. Make sure you have downloaded the latest version of [Android Studio](https://developer.android.com/sdk/index.html). It works on Linux, Windows and Mac. Download the correct version for your OS.
